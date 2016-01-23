@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.png">
 
-    <title>SentiTU- Sentiments Analysis of Twitter User</title>
+    <title>CandyFit</title>
 
     <!-- Bootstrap -->
     <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
@@ -28,13 +28,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-md-12 col-lg-12">
-					<h1>SentiTU</h1>
-					<h2 class="subtitle">Sentiments Analysis of Tweet by - Naive Bayes, Maximum Entropy, Polarity Score and LinearSVC</h2>
+					<h1>CandyFit</h1>
+					<h2 class="subtitle">We will match you with best companies.</h2>
 					<!--<div id="countdown"></div>!--><br/><br/>
-					<form class="form-inline signup" action="" method="post" role="form">{% csrf_token %}
+					<form class="form-inline signup" name=" Candidate_Form" action="" method="post" role="form">{% csrf_token %}
 					  <div class="form-group">
 					    <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter the keyword to search Tweet">!-->
-						{{form.keyword}}
+						{{form.Name}}
+						{{form.Email}}
+						{{form.Phone_Number}}
+                        {{form.Job_Title}}
+                        {{form.Cover_Title}}
+                        {{form.Extra_Curricular}}
+                        {{form.Social_Profile}}
+                        <!--{{form.Resume}}-->
 					  </div>
 					  <button type="submit" class="btn btn-theme">Search!</button>
 					</form>		
@@ -71,7 +78,7 @@
 			{% endif %}
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
-						<p class="copyright"><a href="" target="blank">MonkeyBusiness</a> - <a href="" target="blank">Housing.com Hackathon</a></p>
+						<p class="copyright"><a href="" target="blank">MonkeyBusiness</a> - <a href="" target="blank">Hack Arizona</a></p>
 				</div>
 			</div>		
 		</div>
