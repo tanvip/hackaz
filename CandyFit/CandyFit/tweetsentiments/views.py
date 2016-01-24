@@ -9,6 +9,8 @@ from models import *
 #def home(request):
 #    return render_to_response('index.html', locals(), context_instance = RequestContext(request))
 from mongoengine import connect
+import pymongo
+from pymongo import MongoClient
 
 my_con = connect('Info', alias='Default')
 
@@ -28,11 +30,35 @@ def analyser(request):
         # A POST request: Handle Form Upload
         form = Analyse_Form(request.POST) # Bind data from request.POST into a PostForm
         if form.is_valid():
-            print("anupam")
+            #print("anupam")
+            client = MongoClient()
+            db = client.Info
+            candidate = db.tweetsentiments_candidate
             Company_id = form.cleaned_data['Company_id']
             Job_Title = form.cleaned_data['Job_Title']
-            print my_con.tweetsentiments_candidate.find({ Job_Title: form.cleaned_data['Job_Title'] });
-    return render_to_response('index.html',{'form': form, 'results':response,},context_instance = RequestContext(request))
+            results = {}
+            for i in candidate.find({ 'Job_Title': form.cleaned_data['Job_Title']}):
+                elem = list()
+                name = i['Name']
+                results[name]={}
+                elem.append(i['Extra_Curricular'])
+                elem.append(i['Cover_Title'])
+                l = ' '.join(elem)
+                l = l.encode("utf-8")
+                #import pdb; pdb.set_trace()
+                pol = polarity_test(l)
+                results[name]['Sentimental_Analysis']=pol
+                results[name]['Employee_Recognition']= 90.1
+                results[name]['Passion']= 65.1
+                results[name]['Goal_Oriented']= 85.1
+                results[name]['Interest']= 90.1
+                results[name]['Active']= 65.1
+
+            print results
+            import json
+            with open('data.txt', 'w') as outfile:
+                json.dump(results, outfile)
+    return render_to_response('analyser.html',{'form': form, 'results':response,},context_instance = RequestContext(request))
 
 def home(request):
     response = ""
@@ -42,10 +68,10 @@ def home(request):
                 "neutral":0.0
                 }
     if request.method == 'GET':
-        form = Candiate_Form()
+        form = Candidate_Form()
     else:
         # A POST request: Handle Form Upload
-        form = Candiate_Form(request.POST) # Bind data from request.POST into a PostForm
+        form = Candidate_Form(request.POST) # Bind data from request.POST into a PostForm
         # If data is valid, proceeds to create a new post and redirect the user
 
         if form.is_valid():
@@ -83,6 +109,6 @@ def company(request):
 
         if form1.is_valid():
             pass
-            item = companyinfo( Description = form1.cleaned_data['Description'], Job_Title = form1.cleaned_data['Job_Title'], Company_Name = form1.cleaned_data['Company_Name'], Perks = form1.cleaned_data['Perks'], Activities = form1.cleaned_data['Activities'] )
+            item = companyinfo( Company_id = form1.cleaned_data['Company_id'],Description = form1.cleaned_data['Description'], Job_Title = form1.cleaned_data['Job_Title'], Company_Name = form1.cleaned_data['Company_Name'], Perks = form1.cleaned_data['Perks'], Activities = form1.cleaned_data['Activities'] )
             item.save()
     return render_to_response('company.html',{'form': form1,},context_instance = RequestContext(request))

@@ -53,6 +53,5 @@ def polarity_test(tweet):
 					break
 	'''
 	print pos,neg
-	if pos > neg: return 'positive'
-	if pos < neg: return 'negative'
-	return 'neutral'
+	return float(pos-neg)/100*float(pos+neg+1)
+	
