@@ -1,0 +1,79 @@
+.dashboard-actions .save{
+color: #FFF;
+text-shadow: -2px 2px #44C767;
+background-color: #44C767;
+box-shadow: 0px 0px 0px 1px #44C767 inset;
+border: medium none;
+border-radius: 15px;
+display: inline-block;
+margin: 0px 10px 0px 0px;
+padding: 15px;
+font-size: 14px;
+font-family: "Bitter",serif;
+line-height: 1.8;
+vertical-align: bottom;
+-moz-appearance: none;
+}
+.dashboard-actions .ignore{
+color: #FFF;
+text-shadow: -2px 2px #FFC65D;
+background-color: #FFC65D;
+box-shadow: 0px 0px 0px 1px #FFC65D inset;
+border: medium none;
+border-radius: 15px;
+display: inline-block;
+margin: 0px 10px 0px 0px;
+padding: 15px;
+font-size: 14px;
+font-family: "Bitter",serif;
+line-height: 1.8;
+vertical-align: bottom;
+-moz-appearance: none;
+}
+.dashboard-actions{float:right; position: absolute; right:220px; bottom:50px;}
+ul{
+  padding: 0px;
+  margin: 0px;
+  list-style:none
+}
+ul li{border-bottom:2px solid #CCCCCC; height: 410px;}
+
+#skillmap{  padding:20px;}
+#skillmap .skills-wrapper {
+  margin-top: 10px;
+  height: 400px;
+}
+#skillmap .skills-sunburst {
+  float: left;
+  width: 45%;
+  margin-left: -80px;
+}
+#skillmap .skills-sunburst svg {
+  font: 11px 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  cursor: pointer;
+}
+#skillmap #skills-chart {
+  float: left;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+  margin: 63px 20px 0 0;
+}
+#skillmap #skills-chart .breadcumb-text {
+  font-size: 13px;
+  font-weight: 700;
+}
+#skillmap #skills-chart #skills-chart-line {
+  fill: none;
+  stroke-width: 3.5px;
+}
+#skillmap #skills-chart .axis path,
+#skillmap #skills-chart .axis line {
+  fill: none;
+}
+#skillmap #skills-chart .x-axis path,
+#skillmap #skills-chart .y-axis path {
+  stroke: #444;
+  stroke-width: 1px;
+  shape-rendering: geometricPrecision;
+}

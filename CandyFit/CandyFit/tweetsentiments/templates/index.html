@@ -46,37 +46,6 @@
 					  <button type="submit" class="btn btn-theme">Search!</button>
 					</form>		
 				</div>
-				
-			</div>
-			<br/><br/>
-			{% if results != "" %}
-			<div>
-				<h4><font color="white">SENTIMENT</font></h4>
-				<h4><font color = {% if results.polarity == "Positive" %} "#66FF33" {% elif results.polarity == "Negative" %} "red" {% else %}"yellow" {% endif %}>{{results.polarity}}</font></h4>
-				<h4><font color="white">RESULT</font></h4>
-				<h4><font color = {% if results.tf == "TRUTH" %} "#66FF33" {% else %} "red" {% endif %}>{{results.tf}}</font></h4>
-			</div>
-			<div class = "row">
-			<h2 class = "subtitle">
-				<center><table bgcolor="grey" border = "2px solid black" width= "1000px" id='sentiments'>
-					<tr script = {padding:2px;}>
-					<td  width ="55%">Tweet</td><td width ="15%">Bayes</td><td width ="15%">Entropy</td><td width ="15%">Polarity</td><td width ="15%">LinearSVC</td></h2>
-					</tr>
-					{% for bbc in results.results %}
-					<tr>
-						<td><h4><font color = "#00FFFF">{{bbc.0}}</font></h4></td>
-						<!--<td><h4><font color = "#00FFFF">{{bbc.1}}</font></h4></td>-->
-						<td><h4><font color = {% if bbc.1 == "positive" %} "#66FF33" {% elif bbc.1 == "negative" %} "red" {% else %}"yellow" {% endif %}>{{bbc.1}}</font></h4></td>
-						<td><h4><font color = {% if bbc.2 == "positive" %} "#66FF33" {% elif bbc.2 == "negative" %} "red" {% else %}"yellow" {% endif %}>{{bbc.2}}</font></h4></td>
-						<td><h4><font color = {% if bbc.3 == "positive" %} "#66FF33" {% elif bbc.3 == "negative" %} "red" {% else %}"yellow" {% endif %}>{{bbc.3}}</font></h4></td>
-						<td><h4><font color = {% if bbc.4 == "positive" %} "#66FF33" {% elif bbc.4 == "negative" %} "red" {% else %}"yellow" {% endif %}>{{bbc.4}}</font></h4></td>
-					</tr>
-					{% endfor  %}
-				</table>
-				</center>
-			</div>
-			{% endif %}
-			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
 						<p class="copyright"><a href="" target="blank">MonkeyBusiness</a> - <a href="" target="blank">Hack Arizona</a></p>
 				</div>

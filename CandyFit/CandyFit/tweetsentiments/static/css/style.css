@@ -151,6 +151,18 @@ form.signup input.form-control:focus {
 	letter-spacing: -1px;
 }
 
+.skills-sunburst{
+    float: left;
+    position: relative;
+    width:60%;
+}
+
+.skills-chart{
+   float: left;
+   position: relative;
+   width:25%;
+}
+
 h2.subtitle {
 	color: #fff;
 	font-size: 24px;
@@ -170,4 +182,8 @@ p.copyright {
 	margin-top: 50px;
 	color: #fff;
 	text-align: center;
-}	
+}
+
+
+.liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+    	

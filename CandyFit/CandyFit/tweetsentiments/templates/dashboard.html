@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CandyFit</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/d3.css"/>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+       <div id="skillmap" data-ref="render-block" data-ref="'+identifier+'"> <h2>'John Doe'</h2> <div class="skills-wrapper"> <div class="skills-sunburst"></div> <div id="skills-chart"> <div id="skills-chart-breadcrumb"> </div> <svg id="fillgauge3" width="70%" height="200"></svg> <div class="dashboard-actions"> <button class="save">Save</button> <button class="ignore">Ignore</button> </div> </div> </div> </div>
+    <div id="skills">
+     <ul>
+     </ul>
+    </div>
+    
+
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/json/data.js"></script>
+    <script type="text/javascript" src="../static/json/analysis.js"></script>
+    <script src="../static/js/liquidFillGauge.js" language="JavaScript"></script>
+<script type="text/javascript">
+      
+d3.select(self.frameElement).style("height", "700px");
+    var gauge3 = loadLiquidFillGauge("fillgauge3", 60.1, liquidFillGaugeDefaultSettings());
+    var config3 = liquidFillGaugeDefaultSettings();
+    config3.textVertPosition = 0.8;
+    config3.waveAnimateTime = 5000;
+    config3.waveHeight = 0.15;
+    config3.waveAnimate = false;
+    config3.waveOffset = 0.25;
+    config3.valueCountUp = false;
+    config3.displayPercent = false;
+ 
+  </script> 
+  <script type="text/javascript" src="../static/js/d3.js"></script>
+    </div>
+  </body>
+</html>
